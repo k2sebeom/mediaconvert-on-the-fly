@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>EMC On the Fly</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="">
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+    <div>
+        URL: 
+        <input type="text" name="url" id="url-element">
+        <button id="play-btn">Play</button>
+    </div>
+
+    <div>
+        <video id="video-element" controls autoplay></video>
+    </div>
+
+    <script>
+        const inp = document.getElementById("url-element");
+        const btn = document.getElementById("play-btn");
+        const videoEl = document.getElementById("video-element");
+        btn.onclick = (e) => {
+            let hls = new Hls();
+            hls.loadSource(inp.value);
+            hls.attachMedia(videoEl);
+        }
+        
+    </script>
+</body>
+</html>
